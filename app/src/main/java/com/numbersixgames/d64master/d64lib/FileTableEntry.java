@@ -1,5 +1,7 @@
 package com.numbersixgames.d64master.d64lib;
 
+import java.util.Arrays;
+
 /**
  * Created by Six on 12/28/2017.
  * Bytes: $00-1F: First directory entry
@@ -78,10 +80,14 @@ public class FileTableEntry {
         Locked = ((fileTypeByte & 0x40) == 0x40);
         Splat = ((fileTypeByte & 0x80) != 0x80);
         FirstSector = new DiskPointer(dataBytes[3],dataBytes[4]);
-        FileName = "";
-        for (int i=0x05;i<=0x14;i++){
-            if (dataBytes[i]>0) FileName += (char)dataBytes[i];
-        }
+        FileName = C64Strings.C64StrFromBytes(Arrays.copyOfRange(dataBytes,0x05,0x15 ));//"";
+//        for (int i=0x05;i<=0x14;i++){
+//            if ((dataBytes[i] & 0xff)==0x73) {
+//                FileName +="\u2665";
+//            } else {
+//                FileName += (char)(dataBytes[i] & 0xff);
+//            }
+//        }
         //1E-1F: File size in sectors, low/high byte  order  ($1E+$1F*256).
         FileSize = ((dataBytes[0x1e] & 0xff)+((dataBytes[0x1f] & 0xff)*256)*254);
     }

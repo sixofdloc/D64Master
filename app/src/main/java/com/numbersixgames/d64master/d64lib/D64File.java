@@ -1,5 +1,6 @@
 package com.numbersixgames.d64master.d64lib;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -78,7 +79,8 @@ public class D64File {
      */
 
     public String diskTitle() {
-        return GetString(18,0,0x90,0x0f);
+        String strDiskTitle = GetString(18,0,0x90,0x10);
+        return strDiskTitle;
 
     }
 
@@ -88,9 +90,10 @@ public class D64File {
 
     public String GetString(int track, int sector, int offset, int strlen){
         String response = "";
-        byte[] sectorData = GetSector(track,sector);
-        for (int i = offset;i<=offset+strlen;i++){
-            response += (char)(sectorData[i]);
+        byte[] diskData = GetBytes(track,sector,offset,strlen);
+
+        for (int i = 0;i<strlen;i++){
+                response += (char) (diskData[i] & 0xff);
         }
         return response;
     }
@@ -118,6 +121,14 @@ public class D64File {
         }
     }
 
+    public int BlocksFree(){
+        byte[] BAM = GetSector(18,0);
+        int blocksFree = 0;
+        for (int i = 0x04;i<=0x8c;i+=4){
+            if (i !=0x48) blocksFree +=(BAM[i] & 0xff);
+        }
+        return blocksFree;
+    }
     public int LoadAddressOfFile(FileTableEntry fileTableEntry){
         byte[] loadAddressBytes = GetBytes(fileTableEntry.FirstSector.Track,fileTableEntry.FirstSector.Sector,2,2);
         return ((loadAddressBytes[1] & 0xff) * 256)+(loadAddressBytes[0] & 0xff);

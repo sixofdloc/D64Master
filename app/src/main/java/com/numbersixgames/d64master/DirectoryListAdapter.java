@@ -57,7 +57,11 @@ public class DirectoryListAdapter  extends ArrayAdapter implements AdapterView.O
         tvSplat.setText(_directoryFiles.get(position).Locked?">":" ");
         tvSplat.setText(_directoryFiles.get(position).Splat?"*":tvSplat.getText());
         if (position ==_highlightedItem){
-            rowView.setBackgroundColor(Color.argb(255,80,80,255));
+            rowView.setBackgroundColor(Color.argb(255,40,40,255));
+            tvFilename.setTextColor(Color.WHITE);
+            tvFilesize.setTextColor(Color.WHITE);
+            tvSplat.setTextColor(Color.WHITE);
+            tvFiletype.setTextColor(Color.WHITE);
         }
         return rowView;
     }
