@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements FileStatusUpdateL
         _directoryAdapter.setOnFileStatusUpdateListener(this);
         lvDirectory.setAdapter(_directoryAdapter);
         lvDirectory.setOnItemClickListener(_directoryAdapter);
-        tvDiskTitle.setText("\"" + _d64File.diskTitle() + "\"");
+        tvDiskTitle.setText("\"" + _d64File.diskTitle() + "\"    ");
         tvDiskId.setText(_d64File.diskId());
         tvBlocksFree.setText(Integer.toString(_d64File.BlocksFree()) +" BLOCKS FREE.");
     }

@@ -79,28 +79,19 @@ public class D64File {
      */
 
     public String diskTitle() {
-        String strDiskTitle = GetString(18,0,0x90,0x10);
-        return strDiskTitle;
-
+        return GetString(18, 0, 0x90, 0x10);
     }
 
     public String diskId(){
-        return GetString(18,0,0xa2,8);
+        return GetString(18,0,0xa2,6);
     }
 
     public String GetString(int track, int sector, int offset, int strlen){
-        String response = "";
-        byte[] diskData = GetBytes(track,sector,offset,strlen);
-
-        for (int i = 0;i<strlen;i++){
-                response += (char) (diskData[i] & 0xff);
-        }
-        return response;
+        return C64Strings.C64StrFromBytes(GetBytes(track,sector,offset,strlen));
     }
 
     public byte[] GetBytes(int track,int sector, int offset, int numbytes){
-        byte[] sectorData = GetSector(track,sector);
-        return Arrays.copyOfRange(sectorData, offset, offset+numbytes);
+        return Arrays.copyOfRange(GetSector(track,sector), offset, offset+numbytes);
     }
 
     public byte[] PETSCIIdiskTitle() {

@@ -6,25 +6,20 @@
 
     <TextView
         android:id="@+id/tvFileSize"
-        android:layout_width="60dp"
+        android:layout_width="80sp"
         android:layout_height="match_parent"
         android:text=" "
         android:textColor ="#6C5EB5"
+        android:textSize="16sp"
         tools:text="999" />
 
-    <TextView
-        android:id="@+id/padding1"
-        android:layout_width="20dp"
-        android:layout_height="match_parent"
-        android:text=" "
-        android:textColor ="#6C5EB5"
-        tools:text=" " />
 
     <TextView
         android:id="@+id/tvFilename"
-        android:layout_width="300dp"
+        android:layout_width="288sp"
         android:layout_height="match_parent"
         android:textColor ="#6C5EB5"
+        android:textSize="16sp"
         android:text=" "
         tools:text="FILENAME00000000" />
 
@@ -39,6 +34,7 @@
     <TextView
         android:id="@+id/tvSplat"
         android:layout_width="20dp"
+        android:textSize="16sp"
         android:layout_height="match_parent"
         android:textColor ="#6C5EB5"
         android:text=" "
@@ -47,6 +43,7 @@
     <TextView
         android:id="@+id/tvFileType"
         android:layout_width="60dp"
+        android:textSize="16sp"
         android:layout_height="match_parent"
         android:textColor ="#6C5EB5"
         android:text="TextView"

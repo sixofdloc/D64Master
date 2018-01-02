@@ -101,8 +101,8 @@ public class C64Strings {
             "\u005b", //0x5b
             "\u00a3", //0x5c
             "\u005d", //0x5d
-            "\u005e", //0x5e
-            "\u005f", //0x5f
+            "\u2191", //0x5e
+            "\u2190", //0x5f
             "\u2500", //0x60
             "\u2660", //0x61
             "\u2502", //0x62
@@ -134,19 +134,154 @@ public class C64Strings {
             "\ue07c", //0x7c
             "\u2502", //0x7d
             "\u03c0", //0x7e
-            "\u25e5" //0x7f
-    };
-    
+            "\u25e5", //0x7f
+            "", //0x80
+            "", //0x81
+            "", //0x82
+            "", //0x83
+            "", //0x84
+            "", //0x85
+            "", //0x86
+            "", //0x87
+            "", //0x88
+            "", //0x89
+            "", //0x8a
+            "", //0x8b
+            "", //0x8c
+            "", //0x8d
+            "", //0x8e
+            "", //0x8f
+            "", //0x90
+            "", //0x91
+            "", //0x92
+            "", //0x93
+            "", //0x94
+            "", //0x95
+            "", //0x96
+            "", //0x97
+            "", //0x98
+            "", //0x99
+            "", //0x9a
+            "", //0x9b
+            "", //0x9c
+            "", //0x9d
+            "", //0x9e
+            "", //0x9f
+            "\u00a0", //0xa0
+            "\u258c", //0xa1
+            "\u2584", //0xa2
+            "\u2594", //0xa3
+            "\u2581", //0xa4
+            "\u258e", //0xa5
+            "\u2592", //0xa6
+            "\ue0a7", //0xa7
+            "\ue0a8", //0xa8
+            "\u25e4", //0xa9
+            "\ue0aa", //0xaa
+            "\u251c", //0xab
+            "\u2597", //0xac
+            "\u2514", //0xad
+            "\u2510", //0xae
+            "\u2582", //0xaf
+            "\u250c", //0xb0
+            "\u2534", //0xb1
+            "\u252c", //0xb2
+            "\u2524", //0xb3
+            "\u258e", //0xb4
+            "\u258d", //0xb5
+            "\ue0b6", //0xb6
+            "\ue0b7", //0xb7
+            "\ue0b8", //0xb8
+            "\u2583", //0xb9
+            "\ue0ba", //0xba
+            "\u2596", //0xbb
+            "\u259d", //0xbc
+            "\u2518", //0xbd
+            "\u2598", //0xbe
+            "\u259a", //0xbf
+            "\u2500", //0xc0
+            "\u2660", //0xc1
+            "\u2502", //0xc2
+            "\u2500", //0xc3
+            "\ue0c4", //0xc4
+            "\ue0c5", //0xc5
+            "\ue0c6", //0xc6
+            "\ue0c7", //0xc7
+            "\ue0c8", //0xc8
+            "\u256e", //0xc9
+            "\u2570", //0xca
+            "\u256f", //0xcb
+            "\ue0cc", //0xcc
+            "\u2572", //0xcd
+            "\u2571", //0xce
+            "\ue0cf", //0xcf
+            "\ue0d0", //0xd0
+            "\u25cf", //0xd1
+            "\ue0d2", //0xd2
+            "\u2665", //0xd3
+            "\ue0d4", //0xd4
+            "\u256d", //0xd5
+            "\u257d", //0xd6
+            "\u25cb", //0xd7
+            "\u2663", //0xd8
+            "\ue0d9", //0xd9
+            "\u2666", //0xda
+            "\u253c", //0xdb
+            "\ue0dc", //0xdc
+            "\u2502", //0xdd
+            "\u03c0", //0xde
+            "\u25e5", //0xdf
+            "\u00a0", //0xe0
+            "\u258c", //0xe1
+            "\u2584", //0xe2
+            "\u2594", //0xe3
+            "\u2581", //0xe4
+            "\u258e", //0xe5
+            "\u2592", //0xe6
+            "\ue0e7", //0xe7
+            "\ue0e8", //0xe8
+            "\u25e4", //0xe9
+            "\ue0ea", //0xea
+            "\u251c", //0xeb
+            "\u2597", //0xec
+            "\u2514", //0xed
+            "\u2510", //0xee
+            "\u2582", //0xef
+            "\u250c", //0xf0
+            "\u2534", //0xf1
+            "\u252c", //0xf2
+            "\u2524", //0xf3
+            "\u258e", //0xf4
+            "\u258d", //0xf5
+            "\ue0f6", //0xf6
+            "\ue0f7", //0xf7
+            "\ue0f8", //0xf8
+            "\u2583", //0xf9
+            "\ue0fa", //0xfa
+            "\u2596", //0xfb
+            "\u259d", //0xfc
+            "\u2518", //0xfd
+            "\u2598", //0xfe
+            "\u03c0" //0xff
+        };
+
     public static String C64StrFromBytes(byte[] inBytes){
         String response = "";
         for (byte b: inBytes) {
-            if ((b & 0xff) <= 0x7f) {
-                response += C64CHAR[(b & 0xff)];
-            } else {
-                response += (char)(b & 0xff);
-            }
+
+            response += C64CHAR[(b & 0xff)];
+
         }
         return response;
     }
-    
+    public static String C64FilenameFromBytes(byte[] inBytes){
+        String response = "";
+        for (byte b: inBytes) {
+            if ((b & 0xff) !=0xa0)
+            response += C64CHAR[(b & 0xff)];
+
+        }
+        return response;
+    }
+
 }

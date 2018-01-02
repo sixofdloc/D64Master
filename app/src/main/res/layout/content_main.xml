@@ -20,39 +20,31 @@
             <TextView
                 android:id="@+id/tvTitlePadding"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#352879"
-                android:text="0  "
                 android:textColor="#6C5EB5"
+                android:text="0 "
                 android:textSize="16sp"
-                tools:text="0  " />
+                tools:text="0 " />
 
             <TextView
                 android:id="@+id/tvDiskTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#6C5EB5"
-                android:text=" "
                 android:textColor="#352879"
+                android:text=" "
                 android:textSize="16sp"
                 tools:text="DISKTITLE0000000" />
 
-            <TextView
-                android:id="@+id/padding1"
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
-                android:background="#352879"
-                android:text=" "
-                android:textColor="#6C5EB5"
-                tools:text=" " />
 
             <TextView
                 android:id="@+id/tvDiskId"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="#352879"
+                android:layout_height="wrap_content"
                 android:text=" "
-                android:textColor="#6C5EB5"
+                android:background="#6C5EB5"
+                android:textColor="#352879"
                 android:textSize="16sp"
                 tools:text="ID0000" />
 
